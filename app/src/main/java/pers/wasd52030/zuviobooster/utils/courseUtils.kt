@@ -58,6 +58,7 @@ class courseUtils {
                         if (!teacherName.contains("Zuvio")) {
                             val rollcallId =
                                 check(course.getString("course_id"))
+                            Log.d("6", rollcallId)
 
                             if (rollcallId != "") {
                                 res.map {
@@ -65,8 +66,11 @@ class courseUtils {
                                         val c = it
                                         c.checkStatus =
                                             checkIn(userId, accessToken, rollcallId, location)
+
+                                        c
+                                    } else {
+                                        it
                                     }
-                                    it
                                 }
                             }
                         }
